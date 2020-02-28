@@ -3,6 +3,10 @@ import { graphqlCloudflare } from "apollo-server-cloudflare/dist/cloudflareApoll
 import { RedditAPI } from "./datasource";
 import { resolvers } from "./resolvers";
 import { schema as typeDefs } from "./schema";
+import { CloudflareCache } from "./cloudflareCache";
+import responseCachePlugin from "apollo-server-plugin-response-cache";
+
+const cache = new CloudflareCache();
 
 const server = new ApolloServer({
   typeDefs,
@@ -11,7 +15,9 @@ const server = new ApolloServer({
     redditApi: new RedditAPI()
   }),
   introspection: true,
-  debug: true
+  debug: false,
+  cache,
+  plugins: [responseCachePlugin({ cache })]
 });
 
 // Can't use server.listen() because async addEventListener is not supported

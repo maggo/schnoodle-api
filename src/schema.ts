@@ -3,7 +3,7 @@ import { gql } from "apollo-server";
 export const schema = gql`
   scalar DateTime
 
-  type Comment @cacheControl(maxAge: 5) {
+  type Comment @cacheControl(maxAge: 60) {
     id: ID!
     body: String!
     permalink: String!
@@ -13,7 +13,7 @@ export const schema = gql`
     updatedAt: DateTime!
   }
 
-  type Post @cacheControl(maxAge: 5) {
+  type Post @cacheControl(maxAge: 60) {
     id: ID!
     title: String!
   }

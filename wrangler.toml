@@ -5,3 +5,6 @@ workers_dev = true
 route = ""
 zone_id = ""
 webpack_config = "webpack.config.js"
+kv-namespaces = [
+  { binding = "SCHNOODLE_GRAPHQL_CACHE", id = "e2cb423111ee4eaf8b686a44f0cc2385" }
+]
