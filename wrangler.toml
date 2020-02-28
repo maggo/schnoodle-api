@@ -1,0 +1,7 @@
+name = "schnoodle-api"
+type = "webpack"
+account_id = "592c9fbea53d793527cc6078b8fe4502"
+workers_dev = true
+route = ""
+zone_id = ""
+webpack_config = "webpack.config.js"
